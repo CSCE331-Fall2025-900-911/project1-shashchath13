@@ -1,0 +1,189 @@
+/* Sidebar CSS Styling */
+/* Sidebar Container */
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    padding-top: 20px;
+}
+
+/* Sidebar Buttons */
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/*Sidebar Hovering */
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+/* Sidebar TAMU Logo */
+.sidebar-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-logo img {
+    width: 120px;
+    border-radius: 50%;
+    margin-top: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 210px;
+    width: calc(100% - 210px);
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 500;
+}
+
+/* Contact Info */
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Icon Styling */
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+/* LinkedIn Link Style */
+.contact-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Container for Light/Dark Mode */
+.split-circle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+/* Halves of Circle */
+.half-circle {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Left and Right Colors */
+.half-circle.left {
+    background-color: #990000;
+}
+
+.half-circle.right {
+    background-color: #555555;
+}
+
+/* Sun and Moon Icon Styling */
+.half-circle img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.half-circle:hover img {
+    transform: scale(1.2);
+}
+
+.main-content {
+    margin-left: 210px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Page Titles */
+.page-title {
+    color: #990000;
+    margin-top: 20px;
+}
+
+/* Page Text */
+.page-text {
+    color: #990000;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+/* Profile Image */
+.profile-image {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Resume PDF Viewing */
+.resume-pdf {
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    height: 600px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Download Link Resume PDF */
+.download-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background-color: #990000;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.download-link:hover {
+    background-color: #b30000;
+}
+
+/* Section Title */
+.section-title {
+    color: #333;
+    margin-top: 30px;
+    font-size: 18px;
+}

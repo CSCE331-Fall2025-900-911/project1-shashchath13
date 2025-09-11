@@ -1,75 +1,54 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>TEST</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Side bar for landing page with buttons */
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #333;
-            padding-top: 20px;
-        }
-
-        /* Side bar buttons */
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 12px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        .sidebar a:hover {
-            background-color: #575757;
-        }
-
-        /* Main content shifts right to make space for sidebar */
-        .main-content {
-            margin-left: 210px;
-            padding: 20px;
-        }
-    </style>
+    <title>Qualifications</title>
+    <meta charset="utf-8">
+    <!-- CSS Styling -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+
     <!-- Sidebar -->
     <div class="sidebar">
+        <!-- Logo -->
+        <div class="sidebar-logo">
+            <img src="texas-a-and-m-logo-9.png" alt="Logo">
+        </div>
+
+        <!-- Buttons -->
         <a href="index.html">Landing Page</a>
         <a href="portfolio.html">Technical Portfolio Page</a>
-        <a href="service.html">Service Page</a>
+        <a href="service.html">Service</a>
         <a href="genai.html">AI Generated Page</a>
     </div>
 
-    <!-- Main Content -->
+    <!-- Light/Dark Mode Toggle -->
+    <div class="split-circle">
+        <a href="link1.html" class="half-circle left">
+            <img src="Light mode.png" alt="Icon 1">
+        </a>
+        <a href="link2.html" class="half-circle right">
+            <img src="Dark mode.png" alt="Icon 2">
+        </a>
+    </div>
+
+    <!-- Portfolio Content -->
     <div class="main-content">
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-                <td align="center">
-                    <h3>
-                        <font color="#990000">Shashvat's Qualifications</font>
-                    </h3>
-                </td>
-            </tr>
-            <tr>
-                <td align="center">
-                    <font color="#990000">
-                        <br><br>
-                        These are my qualifications:
-                    </font>
-                </td>
-            </tr>
-        </table>
+        <h2 class="page-title">My Resume</h2>
+        <p class="page-text">
+            Here’s a preview of my resume. You can also scroll through the full version or download it.
+        </p>
+
+        <!-- PDF Viewing -->
+        <h3 class="section-title">Full Resume (PDF)</h3>
+        <iframe src="Shashvat_Resume_Fall_25.pdf" class="resume-pdf"></iframe>
+
+        <!-- Resume Download -->
+        <a href="Shashvat_Resume_Fall_25.pdf" class="download-link" download>
+            Download Resume (PDF)
+        </a>
     </div>
 </body>
 

@@ -1,92 +1,70 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 
 <head>
-  <title>TEST</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+  <title>Landing Page</title>
+  <meta charset="utf-8">
 
-    /* Side bar for landing page with buttons */
-    .sidebar {
-      height: 100%;
-      width: 200px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333;
-      padding-top: 20px;
-    }
-
-    /* Side bar buttons */
-    .sidebar a {
-      display: block;
-      color: white;
-      padding: 12px;
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .sidebar a:hover {
-      background-color: #990000;
-    }
-
-    /* Style for profile image */
-    .profile-image {
-      display: block;
-      margin: 10px auto;
-      /* centers the image */
-      width: 200px;
-      /* adjust size as needed */
-      border-radius: 15px;
-      /* rounded corners */
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-      /* subtle shadow */
-    }
-
-    /* Main content shifts right to make space for sidebar */
-    .main-content {
-      margin-left: 210px;
-      padding: 20px;
-    }
-  </style>
+  <!-- CSS Styling -->
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
   <!-- Sidebar -->
   <div class="sidebar">
+    <!-- Logo -->
+    <div class="sidebar-logo">
+      <img src="texas-a-and-m-logo-9.png" alt="Logo">
+    </div>
+
+    <!-- Buttons -->
     <a href="portfolio.html">Technical Portfolio Page</a>
     <a href="qualifications.html">Qualifications Page</a>
     <a href="service.html">Service Page</a>
     <a href="genai.html">AI Generated Page</a>
   </div>
 
+  <!-- Light/Dark Mode Toggle -->
+  <div class="split-circle">
+    <a href="link1.html" class="half-circle left">
+      <img src="Light mode.png" alt="Icon 1">
+    </a>
+    <a href="link2.html" class="half-circle right">
+      <img src="Dark mode.png" alt="Icon 2">
+    </a>
+  </div>
+
   <!-- Main Content -->
   <div class="main-content">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td align="center">
-          <h3>
-            <font color="#990000">Shashvat's Page</font>
-          </h3>
-          <!-- Styled and centered image -->
-          <img src="TMNA_FRONT_PLANOHQ.jpg" alt="My Image" class="profile-image">
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <font color="#990000">
-            <br><br>
-            I am currently a junior taking Computer Science at Texas A&M University.
-            Enjoy looking through my extensive and thorough website!This is an edit I made for the repooooooo!
-          </font>
-        </td>
-      </tr>
-    </table>
+    <h3 class="page-title">Shashvat's Page</h3>
+
+    <!-- Profile Picture -->
+    <img src="TMNA_FRONT_PLANOHQ.jpg" alt="My Image" class="profile-image">
+
+    <!-- Intro Paragraph -->
+    <p class="intro-text">
+      I am currently a junior taking Computer Science at Texas A&M University.
+      I have current career interests in Software Engineering, AI, and Cyber.
+      Look through my site to learn more about me. My contact information is down below.
+    </p>
   </div>
+
+  <!-- Contact Info -->
+  <div class="footer">
+    <div class="contact-item">
+      <img src="phone icon.png" alt="Phone Icon" class="contact-icon">
+      <span>+1 (972) 375-2880</span>
+    </div>
+    <div class="contact-item">
+      <img src="mail icon.png" alt="Email Icon" class="contact-icon">
+      <span>shashvatc@hotmail.com</span>
+    </div>
+    <div class="contact-item">
+      <img src="linkedin icon.png" alt="LinkedIn Icon" class="contact-icon">
+      <span><a href="https://www.linkedin.com/in/shashchath13/" target="_blank">shashchath13</a></span>
+    </div>
+  </div>
+
 </body>
 
 </html>

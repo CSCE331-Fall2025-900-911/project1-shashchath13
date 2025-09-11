@@ -1,108 +1,65 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
 
 <head>
-    <title>TEST</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Side bar for landing page with buttons */
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #333;
-            padding-top: 20px;
-        }
-
-        /* Side bar buttons */
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 12px;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        .sidebar a:hover {
-            background-color: #575757;
-        }
-
-        /* Main content shifts right to make space for sidebar */
-        .main-content {
-            margin-left: 210px;
-            padding: 20px;
-        }
-
-        /* Resume preview image styling */
-        .resume-image {
-            width: 70%;
-            max-width: 800px;
-            border: 2px solid #990000;
-            border-radius: 12px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-            margin: 20px 0;
-        }
-
-        .download-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 18px;
-            background-color: #990000;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .download-link:hover {
-            background-color: #b30000;
-        }
-
-        /* Embedded PDF */
-        .resume-pdf {
-            width: 80%;
-            height: 600px;
-            border: 2px solid #990000;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-    </style>
+    <title>Portfolio</title>
+    <meta charset="utf-8">
+    <!-- CSS Styling -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
+        <!-- Logo -->
+        <div class="sidebar-logo">
+            <img src="texas-a-and-m-logo-9.png" alt="Logo">
+        </div>
+
+        <!-- Buttons -->
         <a href="index.html">Landing Page</a>
         <a href="qualifications.html">Qualifications Page</a>
         <a href="service.html">Service Page</a>
         <a href="genai.html">AI Generated Page</a>
     </div>
 
+    <!-- Light/Dark Mode Toggle -->
+    <div class="split-circle">
+        <a href="link1.html" class="half-circle left">
+            <img src="Light mode.png" alt="Icon 1">
+        </a>
+        <a href="link2.html" class="half-circle right">
+            <img src="Dark mode.png" alt="Icon 2">
+        </a>
+    </div>
+
     <!-- Main Content -->
-
     <div class="main-content">
-        <h2 style="color:#990000;">Shashvat's Portfolio</h2>
-        <p>Here is a preview of my resume. You can also view the full version below or download it.</p>
+        <h3 class="page-title">Shashvat's Technical Portfolio</h3>
+        <p class="page-text">
+            These are my Projects:
+        </p>
 
-        <!-- Resume image preview -->
-        <img src="Resume Image.jpg" alt="Resume Preview" class="resume-image">
+        <!-- Projects I Have Completed -->
+        <div class="project-section">
+            <h4 class="section-title">Projects I Have Completed</h4>
+            <ul class="project-list">
+                <li>Project 1 - ...</li>
+                <li>Project 2 - ...</li>
+                <li>Project 3 - ...</li>
+            </ul>
+        </div>
 
-        <!-- Download button -->
-        <br>
-        <a href="Shashvat_Resume_Fall_25.pdf" class="download-link" download>Download Resume (PDF)</a>
-
-        <!-- Embedded PDF viewer -->
-        <h3 style="margin-top:40px; color:#990000;">Full Resume (PDF)</h3>
-        <iframe src="Shashvat_Resume_Fall_25.pdf" class="resume-pdf"></iframe>
+        <!-- Projects I Want to Complete -->
+        <div class="project-section">
+            <h4 class="section-title">Projects I Want to Complete</h4>
+            <ul class="project-list">
+                <li>Project A - ...</li>
+                <li>Project B - ...</li>
+                <li>Project C - ...</li>
+            </ul>
+        </div>
     </div>
 </body>
-
 
 </html>
