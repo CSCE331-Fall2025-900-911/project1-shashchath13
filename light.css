@@ -1,0 +1,464 @@
+/* COMMON STYLES -- Shared by all pages */
+
+/* Background Cloud Image */
+body {
+    background-image: url('clouds.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Overlay to lighten the cloud image */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Sidebar Container */
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #b1dce9;
+    padding-top: 20px;
+}
+
+/* Sidebar Buttons */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    background-color: #9b9b9b;
+}
+
+/* Sidebar Logo */
+.sidebar-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar-logo img {
+    width: 120px;
+    border-radius: 50%;
+    margin-top: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 210px;
+    width: calc(100% - 210px);
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    z-index: 500;
+}
+
+/* Contact Icons */
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.contact-item a {
+    color: #333;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Light/Dark Mode Circle */
+.split-circle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    z-index: 1000;
+}
+
+.half-circle {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.half-circle.left {
+    background-color: #f8f8f8;
+}
+
+.half-circle.right {
+    background-color: #555555;
+}
+
+.half-circle img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.half-circle:hover img {
+    transform: scale(1.2);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 210px;
+    padding: 20px;
+    text-align: left;
+}
+
+.page-title {
+    color: #990000;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+/* LANDING PAGE */
+
+.intro-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 80px;
+    height: calc(100vh - 300px);
+    min-height: 400px;
+}
+
+.intro-text {
+    flex: 1;
+    font-size: 20px;
+    line-height: 1.6;
+    padding-right: 20px;
+}
+
+.intro-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.intro-image img {
+    max-width: 50%;
+    max-height: 50%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+
+/* TECHNICAL PORTFOLIO PAGE */
+.page-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.project-section {
+    margin-bottom: 50px;
+}
+
+.project-card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.project-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.project-image {
+    width: 400px;
+    height: auto;
+    text-align: center;
+}
+
+.project-title {
+    color: #990000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.project-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.project-tech {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.project-link {
+    display: inline-block;
+    background-color: #990000;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #b30000;
+}
+
+.project-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    font-size: 12px;
+    color: #888;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* Future Projects Styling */
+.future-project {
+    border-left: 4px solid #990000;
+    background-color: #fafafa;
+}
+
+.project-status {
+    display: inline-block;
+    background-color: #990000;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* QUALIFICATIONS PAGE */
+
+.section-title {
+    color: #333;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+/* Resume PDF Viewing */
+.resume-pdf {
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    height: 600px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Download Link for Resume */
+.download-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background-color: #990000;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.download-link:hover {
+    background-color: #b30000;
+}
+
+.skills-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #990000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.skills-link:hover {
+    background-color: #b30000;
+    text-decoration: none;
+}
+
+/* SERVICE PAGE STYLES */
+.service-section {
+    margin-bottom: 50px;
+}
+
+.service-card {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.service-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.service-image {
+    flex: 1;
+    text-align: center;
+}
+
+.service-title {
+    color: #990000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.service-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-skills {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.service-type {
+    display: inline-block;
+    background-color: #990000;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.service-link {
+    display: inline-block;
+    background-color: #990000;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.service-image img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Future Services Styling */
+.future-service {
+    border-left: 4px solid #990000;
+    background-color: #fafafa;
+}
+
+.service-status {
+    display: inline-block;
+    background-color: #666;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

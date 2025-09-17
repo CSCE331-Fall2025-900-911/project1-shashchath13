@@ -5,7 +5,7 @@
     <title>Portfolio</title>
     <meta charset="utf-8">
     <!-- CSS Styling -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="light.css">
 </head>
 
 <body>
@@ -18,6 +18,7 @@
 
         <!-- Buttons -->
         <a href="index.html">Landing Page</a>
+        <a href="portfolio.html">Technical Portfolio Page</a>
         <a href="qualifications.html">Qualifications Page</a>
         <a href="service.html">Service Page</a>
         <a href="genai.html">AI Generated Page</a>
@@ -37,27 +38,185 @@
     <div class="main-content">
         <h3 class="page-title">Shashvat's Technical Portfolio</h3>
         <p class="page-text">
-            These are my Projects:
+            These are my Projects as well as Projects I want to complete in the future:
         </p>
 
         <!-- Projects I Have Completed -->
         <div class="project-section">
             <h4 class="section-title">Projects I Have Completed</h4>
-            <ul class="project-list">
-                <li>Project 1 - ...</li>
-                <li>Project 2 - ...</li>
-                <li>Project 3 - ...</li>
-            </ul>
+
+            <!-- Individual Project Cards -->
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-text">
+                        <h5 class="project-title">Teeko Board Game</h5>
+                        <p class="project-description">
+                            In ENGR 102 (Introduction to Python), my group developed a terminal-based implementation of
+                            the board game Teeko as our
+                            final project. The project was organized into multiple files, including separate modules for
+                            game logic, win conditions,
+                            and tie scenarios. As the most technically experienced member of the team, I took the lead
+                            in developing the main game
+                            file, integrating the supporting modules, and ensuring smooth functionality. My teammates
+                            contributed by creating the
+                            auxiliary files and assisting with debugging and testing, resulting in a fully functional
+                            and interactive game.
+                        </p>
+                        <p class="project-tech"><strong>Technologies:</strong> Python, Terminal Interface, Game Logic
+                        </p>
+                        <a href="https://en.wikipedia.org/wiki/Teeko" target="_blank" class="project-link">
+                            View Game Rules & History
+                        </a>
+                    </div>
+                    <div class="project-image">
+                        <img src="Teeko_game.png" alt="Teeko Board Game Screenshot">
+                        <p class="image-caption">Teeko game running in terminal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-text">
+                        <h5 class="project-title">Food Truck Project</h5>
+                        <p class="project-description">
+                            In my CSCE 314 course, I developed a Cheese Sandwich Food Truck simulator using JavaFX and
+                            SceneBuilder. This was an
+                            individual project, requiring careful time management and iterative development to complete
+                            each component of the
+                            application. The project was structured so that every stage of the food truck process
+                            corresponded to a dedicated Java
+                            and FXML file, which I then integrated to allow seamless navigation between views. The final
+                            product, shown in the image
+                            on the right, includes both a customer-facing interface and an admin panel for managing
+                            inventory. Access to the
+                            administrative side is secured with a password prompt, and it provides functionality to
+                            restock supplies and monitor
+                            operations.
+                        </p>
+                        <p class="project-tech"><strong>Technologies:</strong> Java, JavaFX, FXML, CSS, SceneBuilder</p>
+                    </div>
+                    <div class="project-image">
+                        <img src="Foodtruck_Project.png" alt="Project 2 Screenshot">
+                        <p class="image-caption">JavaFX Interface Images</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Projects I Want to Complete -->
         <div class="project-section">
             <h4 class="section-title">Projects I Want to Complete</h4>
-            <ul class="project-list">
-                <li>Project A - ...</li>
-                <li>Project B - ...</li>
-                <li>Project C - ...</li>
-            </ul>
+
+            <div class="project-card future-project">
+                <div class="project-content">
+                    <div class="project-text">
+                        <h5 class="project-title">Personal Drawings Website</h5>
+                        <p class="project-description">
+                            Over the summer of 2025, I rekindled my passion for drawing, creating a substantial
+                            collection of original artwork. I
+                            carefully documented my creative process, from preliminary pencil sketches to marker tracing
+                            and final coloring and
+                            shading. I plan to develop a dedicated website to showcase my drawings, organizing related
+                            pieces from the same
+                            universes into themed sections or tabs. Each section would feature its own unique design and
+                            background, inspired by
+                            websites I admire (such as the one linked below) that use interactive tab layouts to enhance
+                            user experience. This project will leverage the web
+                            development skills I have applied in my current portfolio, while also integrating artistic
+                            and visual design techniques
+                            to present the artwork in an engaging, dynamic, and organized manner.
+                        </p>
+                        <p class="project-tech"><strong>Planned Technologies:</strong> HTML, CSS, JavaScript</p>
+                        <a href="https://www.fandom.com/topics/anime" target="_blank" class="project-link">
+                            View Site Inspiration
+                        </a>
+                        <span class="project-status">Planned</span>
+                    </div>
+                    <div class="project-image">
+                        <img src="Gon x Killua.png" alt="Future Project Concept">
+                        <p class="image-caption">Drawing of Gon x Killua (from the anime Hunter x Hunter)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card future-project">
+                <div class="project-content">
+                    <div class="project-text">
+                        <h5 class="project-title">Personal Lego Collection Catalog</h5>
+                        <p class="project-description">
+                            I was introduced to Legos at a very young age, and throughout my life, I have consistently
+                            built and collected them. My
+                            brother and I spent countless hours creating imaginative stories, some rivaling blockbuster
+                            movies in creativity. Over
+                            time, many sets were broken or lost to what Lego enthusiasts call "The Bin"—large containers
+                            holding miscellaneous
+                            pieces.
+
+                            During the summer of 2025, I rediscovered my passion for Legos, inspired by restoration
+                            videos I saw online. I began
+                            salvaging and restoring sets that had been lost or damaged, discovering along the way that
+                            many minifigures were
+                            mismatched or incomplete, much like the mischievous Sid from Toy Story.
+
+                            I plan to develop a personal website to catalog my Lego collection, including all sets and
+                            their associated minifigures.
+                            Sets will be organized by theme, with each theme featuring a unique layout and background.
+                            This site will serve as both
+                            a digital inventory to track my collection and as a showcase to share it with others without
+                            needing in-person viewing,
+                            while highlighting the creativity and history behind each set.
+                        </p>
+                        <p class="project-tech"><strong>Planned Technologies:</strong> HTML, CSS, JavaScript</p>
+                        <a href="https://www.lego.com/en-us/themes" target="_blank" class="project-link">
+                            View Site Inspiration
+                        </a>
+                        <span class="project-status">Planned</span>
+                    </div>
+                    <div class="project-image">
+                        <img src="Lego Collection.png" alt="Future Project Concept">
+                        <p class="image-caption">Image of a part of my Lego Collection</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card future-project">
+                <div class="project-content">
+                    <div class="project-text">
+                        <h5 class="project-title">Personalized Chess Set</h5>
+                        <p class="project-description">
+                            Growing up, I spent countless hours playing chess and immersing myself in the world of
+                            Mario. As a child, I always
+                            dreamed of owning a Mario-themed chess set, but it was never feasible due to its cost. This
+                            idea has stayed with me, and
+                            I now plan to combine my love for chess with my interest in creative design to build a
+                            personalized chess game with an
+                            engaging user interface.
+
+                            The project will feature a start menu where users can select from multiple themes, each
+                            generating a unique board and
+                            set of pieces. For example, choosing a Mario theme would present a board with pieces
+                            inspired by the Mario universe. I
+                            intend to expand this concept to include themes from my favorite shows, animes, and
+                            fictional worlds, creating a
+                            visually engaging experience that blends strategy and nostalgia. This project will allow me
+                            to apply my skills in GUI
+                            design, event handling, and dynamic graphics, while also delivering a personal, imaginative
+                            twist on a classic game.
+                        </p>
+                        <p class="project-tech"><strong>Planned Technologies:</strong> JavaFX, Java</p>
+                        <a href="https://www.walmart.com/ip/Super-Mario-Chess-Game/22012910?wmlspartner=wlpa&selectedSellerId=0&wl13=322&adid=222222222326001341985_1155587910968145_lia&wmlspartner=wmtlabs&wl0=e&wl1=o&wl2=c&wl3=72224483202676&wl4=pla-4575823823960067&wl5=74419&wl6=&wl7=&wl10=Walmart&wl11=Local&wl12=22012910_0&wl14=mario%20chess%20set&veh=sem&msclkid=7b9902a3daf5167ccc3b6a699dc77af6"
+                            target="_blank" class="project-link">
+                            View Site Inspiration
+                        </a>
+                        <span class="project-status">Planned</span>
+                    </div>
+                    <div class="project-image">
+                        <img src="Mario Chess.png" alt="Future Project Concept">
+                        <p class="image-caption">Inspiration Image</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
