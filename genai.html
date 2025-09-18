@@ -1,99 +1,1227 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>AI Generated Page</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Generated Web Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .container {
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .character-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInUp 0.8s ease-out;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .character-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .character-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .character-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .character-card .character-title {
+            font-size: 0.9em;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .character-card p {
+            line-height: 1.6;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .theme-demonslayer .character-card h3 {
+            background: linear-gradient(45deg, #e94560, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .theme-attackontitan .character-card h3 {
+            background: linear-gradient(45deg, #2c3e50, #95a5a6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .theme-fullmetal .character-card h3 {
+            background: linear-gradient(45deg, #8b0000, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .theme-pokemon .character-card h3 {
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .theme-vinlandsaga .character-card h3 {
+            background: linear-gradient(45deg, #8b4513, #daa520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .theme-kurokosbasket .character-card h3 {
+            background: linear-gradient(45deg, #ff4757, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .theme-bluelock .character-card h3 {
+            background: linear-gradient(45deg, #0984e3, #00b894);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card h2 {
+            color: #5a67d8;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .interactive-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .color-changer {
+            text-align: center;
+        }
+
+        .color-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .color-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .prompt-history {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 20px;
+            position: sticky;
+            bottom: 20px;
+        }
+
+        .prompt-history h3 {
+            color: #5a67d8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            padding: 15px 20px;
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .nav-btn.active {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            box-shadow: 0 6px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                justify-content: center;
+            }
+            
+            .nav-btn {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        #promptDisplay {
+            background: #f7f7f7;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            min-height: 100px;
+            max-height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #2d3748;
+            white-space: pre-wrap;
+        }
+
+        .prompt-entry {
+            margin-bottom: 10px;
+            padding: 8px;
+            background: rgba(90, 103, 216, 0.1);
+            border-left: 4px solid #5a67d8;
+            border-radius: 4px;
+        }
+
+        .prompt-timestamp {
+            font-size: 12px;
+            color: #718096;
+            font-weight: bold;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
+<body>
+    <!-- Floating elements for visual interest -->
+    <div class="floating-element" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+    <div class="floating-element" style="top: 20%; right: 15%; animation-delay: 2s;"></div>
+    <div class="floating-element" style="bottom: 30%; left: 20%; animation-delay: 4s;"></div>
 
-<body style="margin:0; font-family: Arial, sans-serif; background-color:#f9f9f9;">
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-btn" onclick="logNavigation('Landing Page')">
+                    🏠 Landing Page
+                </a>
+                <a href="portfolio.html" class="nav-btn" onclick="logNavigation('Technical Portfolio Page')">
+                    💼 Technical Portfolio
+                </a>
+                <a href="qualifications.html" class="nav-btn" onclick="logNavigation('Qualifications Page')">
+                    🎓 Qualifications
+                </a>
+                <a href="service.html" class="nav-btn" onclick="logNavigation('Service Page')">
+                    🛠️ Services
+                </a>
+                <a href="genai.html" class="nav-btn active" onclick="logNavigation('AI Generated Page')">
+                    🤖 AI Generated
+                </a>
+            </div>
+        </nav>
 
-    <!-- Sidebar -->
-    <div style="height:100%; width:200px; position:fixed; top:0; left:0; background-color:#333; padding-top:20px;">
-        <!-- Logo -->
-        <div style="text-align:center; margin-bottom:20px;">
-            <img src="texas-a-and-m-logo-9.png" alt="Logo" style="width:100px; border-radius:8px;">
+        <header class="header">
+            <h1>🚀 AI Generated Website</h1>
+            <p>A dynamic, interactive web experience powered by artificial intelligence</p>
+        </header>
+
+        <div class="content-grid" id="contentGrid">
+            <div class="card">
+                <h2>🎨 Creative Design</h2>
+                <p>This website features modern design principles with smooth animations, gradient backgrounds, and responsive layouts that adapt to any screen size. Every element is carefully crafted to provide an engaging user experience.</p>
+            </div>
+
+            <div class="card">
+                <h2>⚡ Interactive Features</h2>
+                <p>Experience dynamic content with hover effects, color-changing capabilities, and real-time updates. The website responds to your interactions and creates an immersive browsing experience.</p>
+            </div>
+
+            <div class="card">
+                <h2>📱 Responsive Layout</h2>
+                <p>Built with mobile-first design principles, this website looks perfect on desktop, tablet, and mobile devices. The flexible grid system ensures optimal viewing across all screen sizes.</p>
+            </div>
         </div>
 
-        <!-- Buttons -->
-        <a href="index.html"
-            style="display:block; color:white; padding:12px; text-decoration:none; font-size:16px;">Landing Page</a>
-        <a href="portfolio.html"
-            style="display:block; color:white; padding:12px; text-decoration:none; font-size:16px;">Technical Portfolio
-            Page</a>
-        <a href="qualifications.html"
-            style="display:block; color:white; padding:12px; text-decoration:none; font-size:16px;">Qualifications
-            Page</a>
-        <a href="service.html"
-            style="display:block; color:white; padding:12px; text-decoration:none; font-size:16px;">Service Page</a>
+        <div class="interactive-section">
+            <div class="color-changer">
+                <h2>🌈 Interactive Anime Theme Changer</h2>
+                <p>Click the buttons below to change to your favorite anime theme!</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                    <button class="color-btn" onclick="changeBackground('demonslayer')" style="background: linear-gradient(45deg, #e94560, #f39c12);">⚔️ Demon Slayer</button>
+                    <button class="color-btn" onclick="changeBackground('attackontitan')" style="background: linear-gradient(45deg, #2c3e50, #95a5a6);">🏰 Attack on Titan</button>
+                    <button class="color-btn" onclick="changeBackground('fullmetal')" style="background: linear-gradient(45deg, #8b0000, #ffd700);">⚗️ Full Metal Alchemist</button>
+                    <button class="color-btn" onclick="changeBackground('pokemon')" style="background: linear-gradient(45deg, #ff6b6b, #ffd93d);">⚡ Pokemon</button>
+                    <button class="color-btn" onclick="changeBackground('vinlandsaga')" style="background: linear-gradient(45deg, #8b4513, #daa520);">⚔️ Vinland Saga</button>
+                    <button class="color-btn" onclick="changeBackground('kurokosbasket')" style="background: linear-gradient(45deg, #ff4757, #a29bfe);">🏀 Kuroko's Basketball</button>
+                    <button class="color-btn" onclick="changeBackground('bluelock')" style="background: linear-gradient(45deg, #0984e3, #00b894);">⚽ Blue Lock</button>
+                    <button class="color-btn" onclick="changeBackground('default')" style="background: linear-gradient(45deg, #667eea, #764ba2);">🌟 Default</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Top-right split-circle menu -->
-    <div
-        style="position:fixed; top:20px; right:20px; width:60px; height:60px; border-radius:50%; overflow:hidden; display:flex;">
-        <a href="link1.html"
-            style="flex:1; background-color:#990000; display:flex; justify-content:center; align-items:center;">
-            <img src="Light mode.png" alt="Icon 1" style="width:24px; height:24px;">
-        </a>
-        <a href="link2.html"
-            style="flex:1; background-color:#555; display:flex; justify-content:center; align-items:center;">
-            <img src="Dark mode.png" alt="Icon 2" style="width:24px; height:24px;">
-        </a>
+    <div class="prompt-history">
+        <h3>🔍 Prompt History</h3>
+        <div id="promptDisplay">
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 1:</div>
+                I am creating an AI generated web page that should have in line CSS and JavaScript and be written in HTML. Can you do that for me? This page must contain a text box at the bottom with all the prompts I give you
+            </div>
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 2:</div>
+                Now I need a toggle bar at the top to go to other pages that I have already created. I need 5 buttons, one for Landing Page (index.html), Technical Portfolio Page (portfolio.html), Qualifications Page (qualifications.html), Service Page (service.html), AI Generated Page (genai.html).
+            </div>
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 3:</div>
+                Can you change the interactive colors to different anime themes for me: Default for default page, Demon Slayer theme, Attack on titan theme, Full metal alchemist theme
+            </div>
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 4:</div>
+                Can you replace the 2 cards on the default screen with 3 main characters from each of those animes when it is clicked
+            </div>
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 5:</div>
+                This looks great! Can we add more animes: Pokemon, Vinland Saga, Kuroku no Basket, Blue Lock, Beyblade
+            </div>
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 6:</div>
+                Can you generate images for each of the characters as well. And remove beyblade tab please
+            </div>
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 7:</div>
+                In the prompt history tab, can you include ALL the prompts so far instead of actions done on the site
+            </div>
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 8:</div>
+                can you make edits to the file i gave you
+            </div>
+            <div class="prompt-entry">
+                <div class="prompt-timestamp">Prompt 10:</div>
+                Can you add these following things: Demon Slayer background colors: Fire red along with flames and swords in the background. As good as your CSS can accomplish. Attack on Titan: Green, silver, brown with swords and rubble in the background. As good as your CSS can accomplish. Full metal alchemist: red, silver, yellow with robots and explosions in the background as good as your CSS can accomplish. And follow same things for the rest of the animes based on your knowledge. I want the backgrounds to have amazing CSS used.
+            </div> can you include ALL the prompts so far instead of actions done on the site
+            </div>
+        </div>
     </div>
 
-    <!-- Main Content -->
-    <div style="margin-left:210px; padding:30px; max-width:900px;">
+    <script>
+        // Background color themes - Anime Edition with Advanced CSS Backgrounds
+        const themes = {
+            default: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            demonslayer: `
+                radial-gradient(circle at 20% 80%, rgba(220, 20, 60, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 69, 0, 0.7) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 140, 0, 0.6) 0%, transparent 50%),
+                linear-gradient(135deg, #1a0000 0%, #330000 25%, #660000 50%, #cc0000 75%, #ff4500 100%)
+            `,
+            attackontitan: `
+                radial-gradient(ellipse at 30% 70%, rgba(139, 69, 19, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse at 70% 30%, rgba(105, 105, 105, 0.5) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 90%, rgba(160, 82, 45, 0.3) 0%, transparent 80%),
+                linear-gradient(135deg, #2F4F2F 0%, #556B2F 25%, #8FBC8F 50%, #C0C0C0 75%, #D2B48C 100%)
+            `,
+            fullmetal: `
+                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(220, 20, 60, 0.7) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(192, 192, 192, 0.4) 0%, transparent 60%),
+                linear-gradient(135deg, #8B0000 0%, #CD853F 25%, #FFD700 50%, #C0C0C0 75%, #B22222 100%)
+            `,
+            pokemon: `
+                radial-gradient(circle at 20% 20%, rgba(255, 193, 7, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(76, 175, 80, 0.5) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(33, 150, 243, 0.4) 0%, transparent 60%),
+                linear-gradient(135deg, #FF6B35 0%, #FFC107 25%, #4CAF50 50%, #2196F3 75%, #9C27B0 100%)
+            `,
+            vinlandsaga: `
+                radial-gradient(ellipse at 40% 60%, rgba(139, 69, 19, 0.5) 0%, transparent 70%),
+                radial-gradient(ellipse at 70% 20%, rgba(218, 165, 32, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 90%, rgba(47, 79, 79, 0.6) 0%, transparent 80%),
+                linear-gradient(135deg, #2F4F4F 0%, #4682B4 25%, #8B4513 50%, #DAA520 75%, #CD853F 100%)
+            `,
+            kurokosbasket: `
+                radial-gradient(circle at 30% 30%, rgba(255, 71, 87, 0.7) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(162, 155, 254, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(255, 99, 72, 0.5) 0%, transparent 60%),
+                linear-gradient(135deg, #FF4757 0%, #FF6348 25%, #FF7675 50%, #A29BFE 75%, #6C5CE7 100%)
+            `,
+            bluelock: `
+                radial-gradient(circle at 25% 75%, rgba(9, 132, 227, 0.7) 0%, transparent 50%),
+                radial-gradient(circle at 75% 25%, rgba(0, 184, 148, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 206, 201, 0.4) 0%, transparent 60%),
+                linear-gradient(135deg, #0984E3 0%, #00B894 25%, #00CEC9 50%, #74B9FF 75%, #A29BFE 100%)
+            `
+        };
 
-        <h3 style="color:#990000; text-align:center;">Generative AI Showcase</h3>
-        <p style="text-align:center; color:#333;">Demonstrating the capabilities of generative artificial intelligence.
-        </p>
+        // CSS Background Effects for each theme
+        const themeBackgroundEffects = {
+            demonslayer: {
+                pseudoElements: `
+                    body.theme-demonslayer::before {
+                        content: '';
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: 
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 10 L30 20 L20 30 L10 20 Z" fill="rgba(255,69,0,0.1)" transform="rotate(45 20 20)"/></svg>'),
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><polygon points="25,5 30,20 45,20 35,30 40,45 25,35 10,45 15,30 5,20 20,20" fill="rgba(220,20,60,0.1)"/></svg>');
+                        background-size: 120px 120px, 80px 80px;
+                        background-position: 0 0, 60px 40px;
+                        animation: flameFlicker 3s ease-in-out infinite alternate;
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+                    @keyframes flameFlicker {
+                        0% { opacity: 0.7; transform: scale(1) rotate(0deg); }
+                        50% { opacity: 0.9; transform: scale(1.05) rotate(2deg); }
+                        100% { opacity: 0.8; transform: scale(0.98) rotate(-1deg); }
+                    }
+                `,
+                particles: true
+            },
+            attackontitan: {
+                pseudoElements: `
+                    body.theme-attackontitan::before {
+                        content: '';
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: 
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect x="10" y="20" width="40" height="8" fill="rgba(105,105,105,0.1)" transform="rotate(15 30 24)"/></svg>'),
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="8" fill="rgba(139,69,19,0.1)"/></svg>');
+                        background-size: 150px 150px, 100px 100px;
+                        background-position: 0 0, 75px 50px;
+                        animation: rubbleShift 4s ease-in-out infinite;
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+                    @keyframes rubbleShift {
+                        0% { transform: translateX(0px) translateY(0px); }
+                        25% { transform: translateX(2px) translateY(-1px); }
+                        50% { transform: translateX(-1px) translateY(2px); }
+                        75% { transform: translateX(1px) translateY(1px); }
+                        100% { transform: translateX(0px) translateY(0px); }
+                    }
+                `,
+                particles: true
+            },
+            fullmetal: {
+                pseudoElements: `
+                    body.theme-fullmetal::before {
+                        content: '';
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: 
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><circle cx="40" cy="40" r="20" fill="none" stroke="rgba(255,215,0,0.15)" stroke-width="2"/><circle cx="40" cy="40" r="12" fill="rgba(255,215,0,0.1)"/></svg>'),
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><rect x="25" y="25" width="10" height="10" fill="rgba(192,192,192,0.1)" transform="rotate(45 30 30)"/></svg>');
+                        background-size: 130px 130px, 90px 90px;
+                        background-position: 0 0, 65px 45px;
+                        animation: alchemyPulse 2.5s ease-in-out infinite;
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+                    @keyframes alchemyPulse {
+                        0% { opacity: 0.6; transform: scale(1); }
+                        50% { opacity: 1; transform: scale(1.02); }
+                        100% { opacity: 0.6; transform: scale(1); }
+                    }
+                `,
+                particles: true
+            },
+            pokemon: {
+                pseudoElements: `
+                    body.theme-pokemon::before {
+                        content: '';
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: 
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="15" fill="none" stroke="rgba(255,193,7,0.2)" stroke-width="3"/><circle cx="25" cy="25" r="8" fill="rgba(255,193,7,0.1)"/></svg>'),
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><polygon points="20,5 25,15 35,15 27,23 30,33 20,27 10,33 13,23 5,15 15,15" fill="rgba(76,175,80,0.15)"/></svg>');
+                        background-size: 100px 100px, 70px 70px;
+                        background-position: 0 0, 50px 30px;
+                        animation: pokemonBounce 3s ease-in-out infinite;
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+                    @keyframes pokemonBounce {
+                        0% { transform: translateY(0px) rotate(0deg); }
+                        33% { transform: translateY(-3px) rotate(1deg); }
+                        66% { transform: translateY(2px) rotate(-1deg); }
+                        100% { transform: translateY(0px) rotate(0deg); }
+                    }
+                `,
+                particles: true
+            },
+            vinlandsaga: {
+                pseudoElements: `
+                    body.theme-vinlandsaga::before {
+                        content: '';
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: 
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><path d="M40 10 L45 35 L40 60 L35 35 Z" fill="rgba(139,69,19,0.1)" transform="rotate(20 40 35)"/></svg>'),
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><path d="M20 20 L40 25 L35 35 L15 30 Z" fill="rgba(218,165,32,0.1)"/></svg>');
+                        background-size: 140px 140px, 110px 110px;
+                        background-position: 0 0, 70px 55px;
+                        animation: vikingWave 4s ease-in-out infinite;
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+                    @keyframes vikingWave {
+                        0% { transform: translateX(0px) rotate(0deg); }
+                        25% { transform: translateX(3px) rotate(1deg); }
+                        50% { transform: translateX(0px) rotate(0deg); }
+                        75% { transform: translateX(-3px) rotate(-1deg); }
+                        100% { transform: translateX(0px) rotate(0deg); }
+                    }
+                `,
+                particles: true
+            },
+            kurokosbasket: {
+                pseudoElements: `
+                    body.theme-kurokosbasket::before {
+                        content: '';
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: 
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><circle cx="30" cy="30" r="20" fill="none" stroke="rgba(255,71,87,0.15)" stroke-width="2"/><circle cx="30" cy="30" r="3" fill="rgba(255,71,87,0.2)"/></svg>'),
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect x="15" y="15" width="10" height="10" fill="rgba(162,155,254,0.1)" rx="2"/></svg>');
+                        background-size: 120px 120px, 80px 80px;
+                        background-position: 0 0, 60px 40px;
+                        animation: basketballBounce 2s ease-in-out infinite;
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+                    @keyframes basketballBounce {
+                        0% { transform: translateY(0px) scale(1); }
+                        50% { transform: translateY(-5px) scale(1.02); }
+                        100% { transform: translateY(0px) scale(1); }
+                    }
+                `,
+                particles: true
+            },
+            bluelock: {
+                pseudoElements: `
+                    body.theme-bluelock::before {
+                        content: '';
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: 
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="18" fill="none" stroke="rgba(9,132,227,0.15)" stroke-width="2" stroke-dasharray="5,5"/><circle cx="25" cy="25" r="10" fill="rgba(0,184,148,0.1)"/></svg>'),
+                            url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><polygon points="15,5 20,12 15,20 10,12" fill="rgba(0,206,201,0.15)"/></svg>');
+                        background-size: 110px 110px, 70px 70px;
+                        background-position: 0 0, 55px 35px;
+                        animation: soccerSpin 3.5s linear infinite;
+                        z-index: -1;
+                        pointer-events: none;
+                    }
+                    @keyframes soccerSpin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                `,
+                particles: true
+            }
+        };
 
-        <!-- Section 1: Generated Text -->
-        <div
-            style="background-color:#fff; padding:20px; border-radius:10px; margin-top:30px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-            <h4 style="color:#333;">Generated Text Section</h4>
-            <p style="color:#555;">Using a simple prompt, AI can generate coherent text: explanations, summaries, or
-                creative content.</p>
-        </div>
+        // Character data for each anime theme
+        const characterData = {
+            default: [
+                {
+                    title: "🎨 Creative Design",
+                    subtitle: "",
+                    description: "This website features modern design principles with smooth animations, gradient backgrounds, and responsive layouts that adapt to any screen size. Every element is carefully crafted to provide an engaging user experience."
+                },
+                {
+                    title: "⚡ Interactive Features", 
+                    subtitle: "",
+                    description: "Experience dynamic content with hover effects, color-changing capabilities, and real-time updates. The website responds to your interactions and creates an immersive browsing experience."
+                },
+                {
+                    title: "📱 Responsive Layout",
+                    subtitle: "",
+                    description: "Built with mobile-first design principles, this website looks perfect on desktop, tablet, and mobile devices. The flexible grid system ensures optimal viewing across all screen sizes."
+                }
+            ],
+            demonslayer: [
+                {
+                    title: "⚔️ Tanjiro Kamado",
+                    subtitle: "The Kind-Hearted Demon Slayer",
+                    description: "A compassionate young man who became a Demon Slayer to save his sister Nezuko. Known for his Water Breathing and later Sun Breathing techniques, Tanjiro fights demons while maintaining his humanity and empathy for all beings."
+                },
+                {
+                    title: "👹 Nezuko Kamado",
+                    subtitle: "The Demon Who Protects Humans", 
+                    description: "Tanjiro's younger sister who was turned into a demon but retained her human emotions. She fights alongside her brother and has developed unique demon abilities, including the power to shrink and grow at will."
+                },
+                {
+                    title: "🔥 Kyojuro Rengoku",
+                    subtitle: "The Flame Hashira",
+                    description: "The passionate and enthusiastic Flame Pillar of the Demon Slayer Corps. Known for his incredible strength, unwavering determination, and his signature Flame Breathing techniques that burn brighter than any fire."
+                }
+            ],
+            attackontitan: [
+                {
+                    title: "⚡ Eren Yeager",
+                    subtitle: "The Attack Titan",
+                    description: "A determined young man who seeks freedom above all else. Possesses the power of the Attack Titan and later the Founding Titan, driving him on a path that will change the fate of humanity and the world forever."
+                },
+                {
+                    title: "⚔️ Mikasa Ackerman", 
+                    subtitle: "Humanity's Strongest Soldier (Female)",
+                    description: "An exceptionally skilled fighter and member of the Ackerman clan. Fiercely loyal to Eren, she possesses incredible combat abilities and is considered one of the military's most valuable assets in the fight against Titans."
+                },
+                {
+                    title: "🧠 Armin Arlert",
+                    subtitle: "The Colossal Titan",
+                    description: "A brilliant strategist and Eren's childhood friend. Though physically weaker than his comrades, his intelligence and tactical mind have saved countless lives. Later inherits the power of the Colossal Titan."
+                }
+            ],
+            fullmetal: [
+                {
+                    title: "⚗️ Edward Elric",
+                    subtitle: "The Fullmetal Alchemist",
+                    description: "A young State Alchemist known for his short stature and exceptional alchemical abilities. Searching for the Philosopher's Stone to restore his and his brother's bodies after a failed human transmutation attempt."
+                },
+                {
+                    title: "🤖 Alphonse Elric",
+                    subtitle: "The Armor-Bound Soul",
+                    description: "Edward's younger brother whose soul is bound to a suit of armor after their failed attempt to bring their mother back to life. Despite his intimidating appearance, he's gentle-hearted and philosophical."
+                },
+                {
+                    title: "🔥 Roy Mustang",
+                    subtitle: "The Flame Alchemist",
+                    description: "A State Alchemist with the ability to create fire and explosions through alchemy. Ambitious and charismatic, he seeks to become Führer to reform the military from within and protect the people."
+                }
+            ],
+            pokemon: [
+                {
+                    title: "⚡ Ash Ketchum",
+                    subtitle: "The Eternal Pokemon Trainer",
+                    description: "A passionate Pokemon trainer from Pallet Town who dreams of becoming a Pokemon Master. Traveling with his loyal partner Pikachu, he's known for his determination, kindness, and ability to bond with any Pokemon."
+                },
+                {
+                    title: "🔥 Pikachu",
+                    subtitle: "The Electric Mouse Pokemon",
+                    description: "Ash's first and most loyal Pokemon partner. This Electric-type Pokemon is known for its powerful Thunderbolt attacks and unwavering loyalty. Despite initial reluctance, Pikachu and Ash formed an unbreakable bond."
+                },
+                {
+                    title: "🎯 Gary Oak",
+                    subtitle: "The Rival Researcher",
+                    description: "Ash's childhood rival and grandson of Professor Oak. A skilled trainer who later becomes a Pokemon researcher. Known for his competitive nature and extensive knowledge of Pokemon."
+                }
+            ],
+            vinlandsaga: [
+                {
+                    title: "⚔️ Thorfinn Karlsefni",
+                    subtitle: "The Viking Warrior Seeking Peace",
+                    description: "A young Viking warrior consumed by revenge who later finds redemption through pacifism. His journey from a vengeful child to a man seeking to build a peaceful land without war defines the saga."
+                },
+                {
+                    title: "🗡️ Askeladd",
+                    subtitle: "The Cunning Viking Leader",
+                    description: "A Welsh-Viking mercenary leader known for his tactical brilliance and complex morality. Despite his ruthless nature, he serves as both antagonist and mentor to Thorfinn, shaping his destiny."
+                },
+                {
+                    title: "👑 Canute",
+                    subtitle: "The Prince Who Became King",
+                    description: "Initially a timid prince who transforms into a strong ruler. His character development from a weak, feminine prince to a decisive king represents one of the most compelling arcs in the series."
+                }
+            ],
+            kurokosbasket: [
+                {
+                    title: "👻 Tetsuya Kuroko",
+                    subtitle: "The Phantom Sixth Man",
+                    description: "The former sixth man of the legendary Generation of Miracles. Known for his lack of presence and misdirection abilities, he uses teamwork and passing skills to support his teammates and create miracles on the court."
+                },
+                {
+                    title: "🔥 Taiga Kagami",
+                    subtitle: "The Light to Kuroko's Shadow",
+                    description: "A talented basketball player who returned from America. His incredible jumping ability and determination make him the perfect partner for Kuroko, serving as the 'light' to Kuroko's 'shadow' playing style."
+                },
+                {
+                    title: "🌈 Daiki Aomine",
+                    subtitle: "The Ace of Generation of Miracles",
+                    description: "Former ace of the Generation of Miracles known for his incredible speed and unpredictable playing style. His philosophy that 'the only one who can beat me is me' reflects his overwhelming basketball talent."
+                }
+            ],
+            bluelock: [
+                {
+                    title: "⚽ Yoichi Isagi",
+                    subtitle: "The Evolving Striker",
+                    description: "A high school soccer player who enters Blue Lock to become Japan's greatest striker. Known for his analytical mind and ability to adapt, he develops his 'weapon' through intense competition and self-discovery."
+                },
+                {
+                    title: "👑 Meguru Bachira",
+                    subtitle: "The Monster's Vessel",
+                    description: "An eccentric and skilled player who follows his inner 'monster' - his football instincts. His unpredictable dribbling style and creative play make him one of Blue Lock's most entertaining players."
+                },
+                {
+                    title: "🎯 Rensuke Kunigami",
+                    subtitle: "The Left-Footed Sniper",
+                    description: "A striker known for his powerful and accurate left-footed shots. He combines physical strength with technical skill, and his sense of justice and fair play sets him apart from other Blue Lock participants."
+                }
+            ]
+        };
 
-        <!-- Section 2: Generated List -->
-        <div
-            style="background-color:#fff; padding:20px; border-radius:10px; margin-top:30px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-            <h4 style="color:#333;">Generated Ideas</h4>
-            <ul style="color:#555; font-size:16px; line-height:1.6;">
-                <li>AI-generated essay or paragraph</li>
-                <li>AI-generated summary of technical topics</li>
-                <li>AI-generated creative story</li>
-                <li>AI-generated code snippets or pseudo-code</li>
-            </ul>
-        </div>
+        // Change background function with advanced CSS effects
+        function changeBackground(theme) {
+            // Remove existing theme classes and pseudo-element styles
+            document.body.className = '';
+            removeExistingThemeStyles();
+            
+            // Set new background
+            document.body.style.background = themes[theme];
+            document.body.style.transition = 'all 0.8s ease';
+            
+            // Update body class for theme-specific styling
+            document.body.className = `theme-${theme}`;
+            
+            // Add theme-specific CSS effects
+            if (themeBackgroundEffects[theme]) {
+                addThemeSpecificStyles(theme);
+            }
+            
+            // Update character cards based on theme
+            updateCharacterCards(theme);
+            
+            // Add floating particles for certain themes
+            if (themeBackgroundEffects[theme] && themeBackgroundEffects[theme].particles) {
+                createThemeParticles(theme);
+            }
+        }
 
-        <!-- Section 3: Final Prompt -->
-        <div
-            style="background-color:#fff; padding:20px; border-radius:10px; margin-top:30px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-            <h4 style="color:#333;">Final Prompt Used</h4>
-            <textarea readonly
-                style="width:100%; height:150px; padding:10px; font-family:monospace; font-size:14px; border-radius:8px; border:1px solid #ccc; resize:none;">
-Create a self-contained HTML page called genai.html. Use inline CSS only. Demonstrate generative AI capabilities by creating multiple content sections, including text, lists, and styled boxes. Include a text area showing the final prompt used. The page should start with a simple prompt and build upon it to produce a professional, clean, AI-generated page with sidebar and split-circle menu.
-            </textarea>
-        </div>
+        // Function to remove existing theme styles
+        function removeExistingThemeStyles() {
+            const existingStyle = document.getElementById('themeStyles');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+        }
 
-        <!-- Section 4: Explanation -->
-        <div
-            style="background-color:#fff; padding:20px; border-radius:10px; margin-top:30px; margin-bottom:50px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
-            <h4 style="color:#333;">How Generative AI Was Used</h4>
-            <p style="color:#555;">The AI interpreted the prompt, generated structured content, styled it inline, and
-                included a visible record of the final prompt. This shows AI's capability to produce professional,
-                styled HTML content.</p>
-        </div>
+        // Function to add theme-specific styles
+        function addThemeSpecificStyles(theme) {
+            const styleElement = document.createElement('style');
+            styleElement.id = 'themeStyles';
+            styleElement.textContent = themeBackgroundEffects[theme].pseudoElements;
+            document.head.appendChild(styleElement);
+        }
 
-    </div>
+        // Function to create theme-specific floating particles
+        function createThemeParticles(theme) {
+            // Clear existing particles
+            const existingParticles = document.querySelectorAll('.theme-particle');
+            existingParticles.forEach(particle => particle.remove());
 
-    <!-- Footer -->
-    <div style="background-color:#333; color:white; text-align:center; padding:15px; margin-top:50px;">
-        <p style="margin:0;">&copy; 2025 Shashvat Chathapuram - AI Generated Page</p>
-    </div>
+            const particleConfigs = {
+                demonslayer: {
+                    count: 15,
+                    shapes: ['🔥', '⚔️', '💥'],
+                    colors: ['rgba(255,69,0,0.7)', 'rgba(220,20,60,0.7)', 'rgba(255,140,0,0.7)'],
+                    animation: 'flameFloat'
+                },
+                attackontitan: {
+                    count: 12,
+                    shapes: ['⚔️', '🏰', '💀'],
+                    colors: ['rgba(105,105,105,0.6)', 'rgba(139,69,19,0.6)', 'rgba(47,79,79,0.6)'],
+                    animation: 'rubbleFloat'
+                },
+                fullmetal: {
+                    count: 10,
+                    shapes: ['⚗️', '🔬', '⚡'],
+                    colors: ['rgba(255,215,0,0.7)', 'rgba(220,20,60,0.7)', 'rgba(192,192,192,0.6)'],
+                    animation: 'alchemyFloat'
+                },
+                pokemon: {
+                    count: 18,
+                    shapes: ['⚡', '🔥', '💧', '🌿', '❄️'],
+                    colors: ['rgba(255,193,7,0.8)', 'rgba(76,175,80,0.8)', 'rgba(33,150,243,0.8)'],
+                    animation: 'pokemonFloat'
+                },
+                vinlandsaga: {
+                    count: 8,
+                    shapes: ['⚔️', '🛡️', '🏔️'],
+                    colors: ['rgba(139,69,19,0.6)', 'rgba(218,165,32,0.6)', 'rgba(47,79,79,0.6)'],
+                    animation: 'vikingFloat'
+                },
+                kurokosbasket: {
+                    count: 14,
+                    shapes: ['🏀', '✨', '💫'],
+                    colors: ['rgba(255,71,87,0.7)', 'rgba(162,155,254,0.7)', 'rgba(255,99,72,0.7)'],
+                    animation: 'basketballFloat'
+                },
+                bluelock: {
+                    count: 16,
+                    shapes: ['⚽', '⚡', '🎯'],
+                    colors: ['rgba(9,132,227,0.7)', 'rgba(0,184,148,0.7)', 'rgba(0,206,201,0.7)'],
+                    animation: 'soccerFloat'
+                }
+            };
 
+            const config = particleConfigs[theme];
+            if (!config) return;
+
+            // Add particle animations to CSS
+            addParticleAnimations();
+
+            for (let i = 0; i < config.count; i++) {
+                setTimeout(() => {
+                    createSingleParticle(config, theme);
+                }, i * 200);
+            }
+        }
+
+        // Function to add particle animation styles
+        function addParticleAnimations() {
+            if (document.getElementById('particleAnimations')) return;
+
+            const animationStyles = document.createElement('style');
+            animationStyles.id = 'particleAnimations';
+            animationStyles.textContent = `
+                .theme-particle {
+                    position: fixed;
+                    pointer-events: none;
+                    font-size: 16px;
+                    z-index: -1;
+                }
+                
+                @keyframes flameFloat {
+                    0% { transform: translateY(100vh) rotate(0deg) scale(1); opacity: 0; }
+                    10% { opacity: 1; }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(-100px) rotate(360deg) scale(0.5); opacity: 0; }
+                }
+                
+                @keyframes rubbleFloat {
+                    0% { transform: translateY(100vh) translateX(0px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 0.8; }
+                    90% { opacity: 0.8; }
+                    100% { transform: translateY(-100px) translateX(50px) rotate(180deg); opacity: 0; }
+                }
+                
+                @keyframes alchemyFloat {
+                    0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    50% { transform: translateY(50vh) scale(1.2) rotate(180deg); }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(-100px) scale(0.3) rotate(360deg); opacity: 0; }
+                }
+                
+                @keyframes pokemonFloat {
+                    0% { transform: translateY(100vh) scale(1) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    25% { transform: translateY(75vh) scale(1.1) rotate(90deg); }
+                    50% { transform: translateY(50vh) scale(0.9) rotate(180deg); }
+                    75% { transform: translateY(25vh) scale(1.1) rotate(270deg); }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(-100px) scale(0.5) rotate(360deg); opacity: 0; }
+                }
+                
+                @keyframes vikingFloat {
+                    0% { transform: translateY(100vh) translateX(-20px) rotate(0deg); opacity: 0; }
+                    10% { opacity: 0.7; }
+                    90% { opacity: 0.7; }
+                    100% { transform: translateY(-100px) translateX(20px) rotate(45deg); opacity: 0; }
+                }
+                
+                @keyframes basketballFloat {
+                    0% { transform: translateY(100vh) scale(1) rotate(0deg); opacity: 0; }
+                    10% { opacity: 1; }
+                    20% { transform: translateY(80vh) scale(1.2) rotate(72deg); }
+                    40% { transform: translateY(60vh) scale(0.8) rotate(144deg); }
+                    60% { transform: translateY(40vh) scale(1.2) rotate(216deg); }
+                    80% { transform: translateY(20vh) scale(0.8) rotate(288deg); }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(-100px) scale(0.6) rotate(360deg); opacity: 0; }
+                }
+                
+                @keyframes soccerFloat {
+                    0% { transform: translateY(100vh) translateX(0px) rotate(0deg) scale(1); opacity: 0; }
+                    10% { opacity: 1; }
+                    30% { transform: translateY(70vh) translateX(30px) rotate(120deg) scale(1.1); }
+                    70% { transform: translateY(30vh) translateX(-30px) rotate(240deg) scale(0.9); }
+                    90% { opacity: 1; }
+                    100% { transform: translateY(-100px) translateX(0px) rotate(360deg) scale(0.5); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(animationStyles);
+        }
+
+        // Function to create a single particle
+        function createSingleParticle(config, theme) {
+            const particle = document.createElement('div');
+            particle.className = 'theme-particle';
+            
+            const randomShape = config.shapes[Math.floor(Math.random() * config.shapes.length)];
+            const randomColor = config.colors[Math.floor(Math.random() * config.colors.length)];
+            
+            particle.textContent = randomShape;
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.color = randomColor;
+            particle.style.textShadow = `0 0 10px ${randomColor}`;
+            particle.style.animation = `${config.animation} ${8 + Math.random() * 4}s linear forwards`;
+            particle.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.body.appendChild(particle);
+            
+            // Remove particle after animation
+            setTimeout(() => {
+                if (particle.parentNode) {
+                    particle.parentNode.removeChild(particle);
+                }
+            }, 12000);
+        }
+
+        // Function to update character cards
+        function updateCharacterCards(theme) {
+            const contentGrid = document.getElementById('contentGrid');
+            const characters = characterData[theme];
+            
+            // Clear existing content with fade effect
+            contentGrid.style.opacity = '0';
+            contentGrid.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                contentGrid.innerHTML = '';
+                
+                // Create new character cards
+                characters.forEach((character, index) => {
+                    const card = document.createElement('div');
+                    card.className = theme === 'default' ? 'card' : 'character-card';
+                    card.style.animationDelay = `${index * 0.2}s`;
+                    
+                    if (theme === 'default') {
+                        card.innerHTML = `
+                            <h2>${character.title}</h2>
+                            <p>${character.description}</p>
+                        `;
+                    } else {
+                        card.innerHTML = `
+                            <h3>${character.title}</h3>
+                            <div class="character-title">${character.subtitle}</div>
+                            <p>${character.description}</p>
+                        `;
+                    }
+                    
+                    // Add click event for character cards
+                    card.addEventListener('click', function() {
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = theme === 'default' ? 'translateY(-5px)' : 'translateY(-8px) scale(1.02)';
+                        }, 100);
+                    });
+                    
+                    contentGrid.appendChild(card);
+                });
+                
+                // Fade in new content
+                contentGrid.style.opacity = '1';
+                contentGrid.style.transform = 'translateY(0)';
+            }, 400);
+        }
+
+        // Add some interactive elements on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize with default theme
+            updateCharacterCards('default');
+
+            // Add random floating elements periodically
+            setInterval(createFloatingElement, 5000);
+        });
+
+        // Create random floating elements
+        function createFloatingElement() {
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.style.top = Math.random() * 80 + '%';
+            element.style.left = Math.random() * 90 + '%';
+            element.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.body.appendChild(element);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (element.parentNode) {
+                    element.parentNode.removeChild(element);
+                }
+            }, 6000);
+        }
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        changeBackground('demonslayer');
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        changeBackground('attackontitan');
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        changeBackground('fullmetal');
+                        break;
+                    case '0':
+                        e.preventDefault();
+                        changeBackground('default');
+                        break;
+                }
+            }
+        });
+
+        // Navigation logging function
+        function logNavigation(pageName) {
+            console.log(`Navigation to: ${pageName}`);
+        }
+
+        // Update active navigation button based on current page
+        function updateActiveNav() {
+            const currentPage = window.location.pathname.split('/').pop() || 'genai.html';
+            const navBtns = document.querySelectorAll('.nav-btn');
+            
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+                const href = btn.getAttribute('href');
+                if (href === currentPage || (currentPage === '' && href === 'genai.html')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Call on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateActiveNav();
+        });
+    </script>
 </body>
-
 </html>
+                            

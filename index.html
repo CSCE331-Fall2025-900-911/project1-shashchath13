@@ -4,80 +4,102 @@
 <head>
   <title>Landing Page</title>
   <meta charset="utf-8">
-
-  <!-- CSS Styling -->
-  <link rel="stylesheet" type="text/css" href="light.css">
+  <link id="mainStyleSheet" rel="stylesheet" type="text/css" href="light.css">
 </head>
 
 <body class="cloud-background">
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <!-- Logo -->
-    <div class="sidebar-logo">
-      <img src="texas-a-and-m-logo-9.png" alt="Logo">
+
+  <!-- Light Mode Layout -->
+  <div id="lightLayout">
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        <img src="texas-a-and-m-logo-9.png" alt="Logo">
+      </div>
+      <a href="index.html">Landing Page</a>
+      <a href="portfolio.html">Technical Portfolio Page</a>
+      <a href="qualifications.html">Qualifications Page</a>
+      <a href="service.html">Service Page</a>
+      <a href="genai.html">AI Generated Page</a>
     </div>
 
-    <!-- Buttons -->
-    <a href="index.html">Landing Page</a>
-    <a href="portfolio.html">Technical Portfolio Page</a>
-    <a href="qualifications.html">Qualifications Page</a>
-    <a href="service.html">Service Page</a>
-    <a href="genai.html">AI Generated Page</a>
+    <!-- Bottom Footer -->
+    <div class="footer">
+      <div class="contact-item">
+        <img src="phone icon.png" alt="Phone Icon" class="contact-icon">
+        <span>+1 (972) 375-2880</span>
+      </div>
+      <div class="contact-item">
+        <img src="mail icon.png" alt="Email Icon" class="contact-icon">
+        <span>shashvatc@hotmail.com</span>
+      </div>
+      <div class="contact-item">
+        <img src="linkedin icon.png" alt="LinkedIn Icon" class="contact-icon">
+        <span><a href="https://www.linkedin.com/in/shashchath13/" target="_blank">shashchath13</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark Mode Layout -->
+  <div id="darkLayout" style="display: none;">
+    <!-- Top Navigation Bar -->
+    <div class="sidebar">
+      <a href="index.html">Landing Page</a>
+      <a href="portfolio.html">Technical Portfolio Page</a>
+      <a href="qualifications.html">Qualifications Page</a>
+      <a href="service.html">Service Page</a>
+      <a href="genai.html">AI Generated Page</a>
+    </div>
+
+    <!-- Left Sidebar -->
+    <div class="footer">
+      <div class="sidebar-logo">
+        <img src="texas-a-and-m-logo-9.png" alt="Logo">
+      </div>
+      <div class="contact-item">
+        <img src="phone icon.png" alt="Phone Icon" class="contact-icon">
+        <span>+1 (972) 375-2880</span>
+      </div>
+      <div class="contact-item">
+        <img src="mail icon.png" alt="Email Icon" class="contact-icon">
+        <span>shashvatc@hotmail.com</span>
+      </div>
+      <div class="contact-item">
+        <img src="linkedin icon.png" alt="LinkedIn Icon" class="contact-icon">
+        <span><a href="https://www.linkedin.com/in/shashchath13/" target="_blank">shashchath13</a></span>
+      </div>
+    </div>
   </div>
 
   <!-- Light/Dark Mode Toggle -->
   <div class="split-circle">
-    <a href="link1.html" class="half-circle left">
-      <img src="Light mode.png" alt="Icon 1">
-    </a>
-    <a href="link2.html" class="half-circle right">
-      <img src="Dark mode.png" alt="Icon 2">
-    </a>
+    <button class="half-circle left" onclick="toggleLight()">
+      <img src="Light mode.png" alt="Light Mode">
+    </button>
+    <button class="half-circle right" onclick="toggleDark()">
+      <img src="Dark mode.png" alt="Dark Mode">
+    </button>
   </div>
 
   <!-- Main Content -->
   <div class="main-content">
     <h3 class="page-title">Shashvat's Page</h3>
-
     <div class="intro-section">
-      <div class="intro-text">
-        <p>
-          Hi, my name is Shashvat Chathapuram, and I am a junior Computer Science major at Texas A&M University,
-          pursuing minors
-          in AI in Business and Cybersecurity. I’m passionate about how technology can be applied to solve real-world
-          challenges,
-          particularly in the areas of software engineering, artificial intelligence, and cybersecurity.
-
-          Last summer, I gained hands-on experience working in IT, which helped me clarify my career interests and
-          motivated me to
-          pursue roles that align more closely with my skills in software development and emerging technologies. I am
-          now seeking
-          internship opportunities for next summer where I can contribute, continue to grow, and bring value to an
-          innovative
-          team.
-        </p>
-      </div>
       <div class="intro-image">
         <img src="TMNA_FRONT_PLANOHQ.jpg" alt="My Image">
       </div>
+      <div class="intro-text">
+        <p>
+          Hi, my name is Shashvat Chathapuram, and I am a junior Computer Science major at Texas A&M University,
+          pursuing minors in AI in Business and Cybersecurity. I'm passionate about how technology can be applied to
+          solve real-world
+          challenges, particularly in the areas of software engineering, artificial intelligence, and cybersecurity.
+        </p>
+      </div>
     </div>
   </div>
 
-  <!-- Contact Info -->
-  <div class="footer">
-    <div class="contact-item">
-      <img src="phone icon.png" alt="Phone Icon" class="contact-icon">
-      <span>+1 (972) 375-2880</span>
-    </div>
-    <div class="contact-item">
-      <img src="mail icon.png" alt="Email Icon" class="contact-icon">
-      <span>shashvatc@hotmail.com</span>
-    </div>
-    <div class="contact-item">
-      <img src="linkedin icon.png" alt="LinkedIn Icon" class="contact-icon">
-      <span><a href="https://www.linkedin.com/in/shashchath13/" target="_blank">shashchath13</a></span>
-    </div>
-  </div>
+  <script src="functions.js"></script>
 
 </body>
 
